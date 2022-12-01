@@ -6,13 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div>
+<body >
+    <div id="DIV" mousemove="backgroundColorChange()">
         <h1>Color Picker</h1>
         <h2></h2>
     </div>
 </body>
 <script>
-    
+
+    let div = document.getElementById("DIV");
+    let colorPicker = document.querySelector('H1')
+    // styling with javascript!
+    div.style.height = '100vh';
+    div.style.margin = 'auto';
+    div.style.display = "block";
+    div.style.textAlign = "center";
+    colorPicker.style.paddingTop = "30%";
+
+
+    function backgroundColorChange(e) {
+        let x = event.clientX;
+        let y = event.clientY;
+        div.style.backgroundColor = 'rgb(' + x + ', ' + y +', 100)';
+        let h2 = document.querySelector('H2');
+        h2.innerHTML = `rgb(${x}, ${y}, 100)`
+    };
+
+
+
+    window.addEventListener('mousemove', backgroundColorChange);
+
 </script>
 </html>
